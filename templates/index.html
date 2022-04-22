@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+<section>
+    <h1>Pets</h1>
+    <div id="pets-wrapper" class="d-flex flex-wrap">
+        {% for pet in pets %}
+            <div class="col-md-4">
+                <a href="pets/{{pet.id}}">
+                    <div class="card">
+                        {% if pet.photo_url %}
+                        <img class="card-img-top" src="{{ pet.photo_url }}" alt="{{ pet.name }}"/>
+                        {% endif %}
+                        <div class="card-body">
+                            <span class="badge badge-secondary">{{pet.species}}</span>
+                            <p class="card-text">
+                            {% if pet.available %}
+                                <span class="text-success font-weight-bold">{{ pet.name }}</span> is available!
+                                {% else %}
+                                <span class="text-danger font-weight-bold">{{ pet.name }}</span> is not available
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
