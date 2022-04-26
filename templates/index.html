@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %} Home {% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block content %}
 
@@ -7,7 +7,7 @@
     <h1>Pets</h1>
     <div id="pets-wrapper" class="d-flex flex-wrap">
         {% for pet in pets %}
-            <div class="col-md-4">
+            <div class="col-md-4 mb-4">
                 <a href="pets/{{pet.id}}">
                     <div class="card">
                         {% if pet.photo_url %}
@@ -20,7 +20,7 @@
                                 <span class="text-success font-weight-bold">{{ pet.name }}</span> is available!
                                 {% else %}
                                 <span class="text-danger font-weight-bold">{{ pet.name }}</span> is not available
-                                {% endif %}
+                            {% endif %}
                             </p>
                         </div>
                     </div>

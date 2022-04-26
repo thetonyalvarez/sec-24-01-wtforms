@@ -16,6 +16,11 @@ content %}
         <div class="card">
             <div class="card-body">
                 <p class="card-text">
+                    {% if pet.available %}
+                        <span class="text-success font-weight-bold">{{ pet.name }}</span> is available!
+                        {% else %}
+                        <span class="text-danger font-weight-bold">{{ pet.name }}</span> is not available
+                    {% endif %}
                     <h1>Meet {{pet.name}}!</h1>
                     <p>A {{pet.species}}</p>
                     {% if pet.notes %}
